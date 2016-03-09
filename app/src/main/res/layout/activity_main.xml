@@ -20,7 +20,9 @@
         android:padding="10dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30sp"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:text="0"
+        />
 <!--Linear Layout to hold the inner rows of buttons-->
     <LinearLayout
         android:layout_width="match_parent"
