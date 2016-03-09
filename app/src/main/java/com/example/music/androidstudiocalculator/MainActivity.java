@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean stateError;
     // If true, do not allow to add another DOT
     private boolean lastDot;
+    //boolean for removing the 0 when the user starts using the calc
+    private boolean firstUse = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 Button button = (Button) v;
                 if (stateError) {
                     // If there is an error, replace the error message
+
                     calcArea.setText(button.getText());
                     stateError = false;
                 } else {
+                    if (firstUse)
+                    {
+                        calcArea.setText("");
+                        firstUse = false;
+                    }
                     // there is a valid expression so append to it
                     calcArea.append(button.getText());
                 }
@@ -105,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 lastNumeric = false;
                 stateError = false;
                 lastDot = false;
+                firstUse = true;
             }
         });
         // Equal button
